@@ -13,6 +13,23 @@ app.controller('translationController', function ($rootScope,$scope) {
     $scope.test = function(lang,id){
         $scope.testData = translationData[lang][id]['Text'];
     };
+    
+    
+    $scope.openXLIFF = function(xliffFileName){
+        if (window.XMLHttpRequest) {
+            xhttp = new XMLHttpRequest();
+        }
+        else { // IE 5/6
+            xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.overrideMimeType('text/xml');
+        xhttp.open("GET", xliffFileName, false);
+        xhttp.send(null);
+        xmlDoc = xhttp.responseXML;
+        console.log(xmlDoc);
+    };
+    
+    
 
     // TODO:
     // open XLIFF file
@@ -20,6 +37,8 @@ app.controller('translationController', function ($rootScope,$scope) {
     // for each xliff id in the file go to a json translation table and look for the id + the language code.
     // list the text associated with this record and the uuid on screen
     // store updates to the translation data
-    // 
+    // convert the updated XLIFF data back to an XML file
+    // use the XLIFF file to create a new XDP file
+    //
     
 });

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <xliff xmlns:xft-xliff="http://www.xfa.org/schema/xfa-xliff/1.0/" version="1.1">
+        <file tool="AdobeDesigner" original="xliff.xdp" source-language="en" datatype="XDP" product-name="Adobe Designer">
+            <header>
+                <phase-group>
+                    <phase phase-name="design" process-name="form design">
+                        <note>XLIFF/S2X file created by Adobe Designer XDP to S2X translation</note>
+                    </phase>
+                </phase-group>
+                <s2x>
+                    <dtr/>
+                    <giltDirectives>
+                        <develContact>developer@mycompany.com</develContact>
+                        <originalLocale xml:lang="en" />
+                        <collection>package</collection>
+                        <domain>BC</domain>
+                    </giltDirectives>
+                </s2x>
+            </header>
+
+            <body>
+                <group restype="description">
+                    <trans-unit id="03CBDD64-7959-4C82-A3B3-0FB2DFC9EBA6" resname="03CBDD64-7959-4C82-A3B3-0FB2DFC9EBA6">
+                        <source>Forename</source>
+                        <target>Vorname</target>
+                    </trans-unit>
+                </group>
+                <group restype="description">
+                    <trans-unit id="106BDD31-0A1A-45C9-8772-A0610F2B96B2" resname="106BDD31-0A1A-45C9-8772-A0610F2B96B2">
+                        <source>Goodbye</source>
+                        <target>Tschuss</target>
+                    </trans-unit>
+                </group>
+                <group restype="description">
+                    <trans-unit id="E15BB8E8-6D3F-4201-BD2D-ED751A33BF7A" resname="E15BB8E8-6D3F-4201-BD2D-ED751A33BF7A">
+                        <source>Hello
+                        </source>
+                        <target>Hallo</target>
+                    </trans-unit>
+                </group>
+            </body>
+        </file>
+    </xliff>

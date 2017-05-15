@@ -1,9 +1,12 @@
 <div class="panel panel-info panel-round">
     <div class="panel-body panel-round-body panel-bottom-padding">
         <div class="row">
-        <p>Translation for {{lng}}</p> 
-        <p>Test data  {{testData}}</p> 
-        <button ng-click="test()">Test</button>
-        <button ng-click="openXLIFF('xliff/xliff.xml')">Load xliff</button>
+            <p>Translation for {{lng}}</p>
+            <ul ng-repeat="id in xliff">
+                <li>{{id['trans-unit'].source.text}}
+                    <input type="text" ng-value="id['trans-unit'].target.text"> </li>
+            </ul>
+            <button class="btn btn-primary" ng-click="test()">Test</button>
+            <button class="btn btn-primary" ng-click="openXLIFF('xliff/xliff.xml')">Load xliff</button>
+        </div>
     </div>
-</div>

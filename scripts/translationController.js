@@ -27,9 +27,52 @@ app.controller('translationController', function ($rootScope,$scope) {
         xhttp.send(null);
         xmlDoc = xhttp.responseXML;
         console.log(xmlDoc);
+        var json = xmlToJson(xmlDoc);
+        console.log(JSON.stringify(json));
+        console.log(json.xliff.file.body.group);
+        $scope.xliff = json.xliff.file.body.group;
     };
     
-    
+// Changes XML to JSON
+var xmlToJson = function (xml) {
+    // Create the return object
+    var obj = {};
+    if (xml.nodeType == 1) { // element
+        // do attributes
+        if (xml.attributes.length > 0) {
+            obj["attributes"] = {};
+            for (var j = 0; j < xml.attributes.length; j++) {
+                var attribute = xml.attributes.item(j);
+                obj["attributes"][attribute.nodeName] = attribute.nodeValue;
+            }
+        }
+    }
+    else if (xml.nodeType == 3) { // text
+        obj = xml.nodeValue;
+    }
+    // do children
+    if (xml.hasChildNodes()) {
+        for (var i = 0; i < xml.childNodes.length; i++) {
+            var item = xml.childNodes.item(i);
+            var nodeName = item.nodeName;
+            if (nodeName === '#text'){
+                nodeName = 'text';
+            }
+            if (typeof (obj[nodeName]) == "undefined") {
+                obj[nodeName] = xmlToJson(item);
+            }
+            else {
+                if (typeof (obj[nodeName].push) == "undefined") {
+                    var old = obj[nodeName];
+                    obj[nodeName] = [];
+                    obj[nodeName].push(old);
+                }
+                obj[nodeName].push(xmlToJson(item));
+            }
+        }
+    }
+    return obj;
+};
 
     // TODO:
     // open XLIFF file

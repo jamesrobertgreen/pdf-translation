@@ -2,11 +2,20 @@
     <div class="panel-body panel-round-body panel-bottom-padding">
         <div class="row">
             <p>Menu</p>
+            {{lng}}
             <form>
-                <button class="btn btn-primary">English</button>
-                <button class="btn btn-primary">Spanish</button>
-                <button class="btn btn-primary">Indonesian Bahasa</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <label for="exampleSelect1">Select a document:</label>
+                    <select class="form-control" id="document">
+                        <option>Application Form</option>
+                        <option>Form2</option>
+                        <option>Form3</option>
+                        <option>Form4</option>
+                    </select>
+                </div>
+                <button ng-click="selectLanguage('English')" class="btn btn-primary">English</button>
+                <button ng-click="selectLanguage('Spanish')" class="btn btn-primary">Spanish</button>
+                <button ng-click="selectLanguage('Indonesian')" class="btn btn-primary">Indonesian Bahasa</button>
             </form>
         </div>
     </div>
